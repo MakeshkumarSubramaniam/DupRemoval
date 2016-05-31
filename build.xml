@@ -1,0 +1,46 @@
+<project default="test">
+
+	<target name="clean">
+		<delete dir="build" />
+	</target>
+
+	<path id="classpath">
+		<fileset dir="lib" includes="**/*.jar" />
+	</path>
+
+	<path id="application" location="build/jar/DupRemoval.jar" />
+
+
+	<target name="compile" depends="clean">
+		<mkdir dir="build/classes" />
+		<javac srcdir="src" destdir="build/classes" classpathref="classpath" />
+	</target>
+
+
+
+	<target name="jar" depends="compile">
+		<mkdir dir="build/jar" />
+		<jar destfile="build/jar/DupRemoval.jar" basedir="build/classes">
+			<manifest>
+				<attribute name="Main-Class" value="com.assignment.dup.DeDup" />
+			</manifest>
+		</jar>
+	</target>
+
+
+	<target name="test" depends="jar" description="run the tests">
+		<junit printsummary="yes" fork="yes" haltonfailure="yes">
+			<formatter type="plain" />
+			<batchtest fork="true">
+				<fileset dir="src/">
+					<include name="**/*Test*.java" />
+				</fileset>
+			</batchtest>
+			<classpath location="build/classes/" />
+			<classpath location="lib/junit.jar" />
+		</junit>
+	</target>
+
+
+
+</project>
