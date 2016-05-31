@@ -7,9 +7,17 @@ import com.assignment.dup.SimpleDuplicateRemovalOperation;
 import com.assignment.dup.SortedDuplicateRemovalOperation;
 
 import junit.framework.TestCase;
-
+/**
+ * Junit test cases for Simple, Ordered, Sorted duplicate removal classes
+ * @author Makeshkumar Subramaniam
+ *
+ */
 public class DuplicateRemovalTest extends TestCase {
 
+	/**
+	 * Tests the simple duplicate removal
+	 *
+	 */
 	public void testSimpleDuplicate() {
 		
 		int[] data =  new int[]{2,2,1,3,4,3,1,4};
@@ -28,6 +36,10 @@ public class DuplicateRemovalTest extends TestCase {
 
 	}
 
+	/**
+	 * Tests the ordered duplicate removal
+	 *
+	 */
 	public void testOrderdDuplicate() {
 		
 		int[] data =  new int[]{2,2,1,3,4,3,1,4};
@@ -43,6 +55,10 @@ public class DuplicateRemovalTest extends TestCase {
 		
 	}
 	
+	/**
+	 * Tests the sorted duplicate removal
+	 *
+	 */
 	public void testSortedDuplicate(){
 		int[] data =  new int[]{2,2,1,3,4,3,1,4};
 		int[] dataResult = new int[]{1,2,3,4};
